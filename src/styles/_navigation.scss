@@ -1,0 +1,62 @@
+@use 'settings' as *;
+
+.custom-nav {
+    padding: 0 12%;
+    height: 80px;
+    border: 1px solid rgba(208, 201, 201, 0.5);
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    z-index: 999;
+    transition: background-color 0.3s color 0.3s;
+}
+
+.white-them {
+
+    a,
+    .search-icon {
+        color: $white !important;
+    }
+}
+
+.black-them {
+    background: $white ;
+
+    a,
+    .logo,
+    .search-icon {
+        color: #000;
+    }
+}
+
+.logo {
+    font-family: $Kings;
+    font-size: 2.5rem;
+    color: $white;
+
+    span {
+        font-family: $Kings;
+        color: $white;
+    }
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    color: $white;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: $Urbanist;
+    position: relative;
+    margin-left: 20px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $white;
+    }
+
+
+}

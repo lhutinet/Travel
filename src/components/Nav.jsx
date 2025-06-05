@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Nav = () => {
+	const [scrolled, setScrolled] = useState(false);
+	useEffect(() => {
+		const handdleScroll = () => {
+			setScrolled(window.scrollY > 500);
+		};
+		window.addEventListener("scroll", handdleScroll);
+		return () => {
+			window.addEventListener("scroll", handdleScroll);
+		};
+	}, []);
 	return (
 		<>
-			<nav className="navbar navbar-expand-lg  custom-nav position-fixed">
+			<nav
+				className={
+					'navbar navbar-expand-lg  custom-nav position-fixed w-100 ${scrolled ? "black-them" : "white-them"}'
+				}
+			>
 				<div className="container-fluid d-flex justify-content-between align-items-center">
 					<a href="#" className="logo navbar-brand">
 						Frost <span>Quest</span>
