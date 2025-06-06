@@ -1,5 +1,7 @@
 @use 'settings' as *;
 
+
+
 .custom-nav {
     padding: 0 12%;
     height: 80px;
@@ -7,7 +9,8 @@
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
     z-index: 999;
-    transition: background-color 0.3s color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #000;
 }
 
 .white-them {
@@ -22,9 +25,10 @@
     background: $white ;
 
     a,
-    .logo,
+    .logo span,
     .search-icon {
         color: #000;
+        background: red;
     }
 }
 
@@ -41,22 +45,56 @@
 
 .nav-item {
     font-size: 1.2rem;
-    color: $white;
+    color: $white ;
     text-decoration: none;
     font-weight: 600;
     font-family: $Urbanist;
     position: relative;
     margin-left: 20px;
 
-    &::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: $white;
+
+
+    a {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $white;
+            transition: $transition-regular;
+        }
+
+
+
+
+        &:hover::after {
+            width: 100%;
+
+
+        }
     }
+}
 
+.search-icon {
+    font-size: 1.5rem;
+    color: $white;
+    cursor: pointer;
+}
 
+.navbar-toggler {
+    color: $white !important;
+    background: $white;
+
+}
+
+.modal {
+    background: #00000065;
+}
+
+.modal-input input {
+    outline: none;
+    box-shadow: none !important;
+    border: none !important;
 }
