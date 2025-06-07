@@ -77,7 +77,7 @@ const Nav = () => {
 								Search
 							</h5>
 							<button
-								className="btn-close btn-close-xhite"
+								className="btn-close btn-close-shite"
 								data-bs-dismiss="modal"
 								aria-label="Close"
 							></button>

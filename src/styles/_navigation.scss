@@ -10,7 +10,7 @@
     border-bottom-right-radius: 100px;
     z-index: 999;
     transition: background-color 0.3s, color 0.3s;
-    background-color: #000;
+
 }
 
 .white-them {
@@ -97,4 +97,25 @@
     outline: none;
     box-shadow: none !important;
     border: none !important;
+}
+
+@media (max-width:991px) {
+    .navbar-nav {
+        padding: 10px;
+        border-radius: 10px;
+        background: $white;
+        align-items: flex-start !important;
+        margin-top: 10px;
+
+
+        li a {
+            color: #000 !important;
+
+            &::after {
+                background: #000 !important;
+
+            }
+        }
+    }
+
 }

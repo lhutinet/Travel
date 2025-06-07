@@ -1,0 +1,292 @@
+@use "settings" as *;
+
+.hero {
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+    padding-top: 100px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(../assets/Hero-slider-1.webp);
+        background-repeat: no-repeat;
+        animation: Anim-zoom 1.5s forwards linear;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+
+    }
+
+    h2 {
+        font-size: 3rem;
+        opacity: 0;
+        animation: Anim-top 0.9s forwards linear;
+
+    }
+
+    h1 {
+        font-family: $Urbanist;
+        font-weight: 700;
+        font-size: 8rem;
+        line-height: 8rem;
+        opacity: 0;
+        animation: Anim-height forwards 0.3s linear;
+    }
+}
+
+.hero2:before {
+    background: url(../assets/Hero-slider-2.webp) !important;
+}
+
+.hero3:before {
+    background: url(../assets/Hero-slider-3.webp) !important;
+}
+
+.hero-content {
+    z-index: 5;
+    position: relative;
+
+    &::after {
+        content: "Green";
+        position: absolute;
+        top: 15%;
+        right: -7%;
+        font-size: 7rem;
+        font-weight: 600;
+        color: #9b9a9a;
+        opacity: 0;
+        animation: Anim-RL $transition-regular forwards 1.3s linear;
+    }
+
+    &::before {
+        content: "Land";
+        position: absolute;
+        top: 15%;
+        left: -7%;
+        font-size: 7rem;
+        font-weight: 600;
+        color: #9b9a9a;
+        opacity: 0;
+        animation: Anim-LR $transition-regular 1.3s forwards linear;
+    }
+}
+
+.hero-btn {
+    width: 200px !important;
+    height: 60px;
+    border: 1px solid rgb(208, 201, 201, 0.5);
+    border-radius: 50px;
+    background: rgba(208, 201, 201, 0.2);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    animation: Anim-bottom $transition-regular 0.3s forwards linear;
+
+    &:hover {
+        border: 1px solid rgb(208, 201, 201, 0.5);
+        background: rgba(208, 201, 201, 0.2);
+
+    }
+
+
+}
+
+.swiper-btn {
+    font-size: 7rem;
+    position: absolute;
+    top: 45%;
+    left: 10%;
+    color: #9b9a9a;
+    z-index: 2;
+    transition: $transition-regular ;
+
+    &:hover {
+        color: $white;
+        cursor: pointer;
+    }
+}
+
+.swiper-next {
+    left: 85%;
+
+}
+
+
+
+
+
+// Hero Animation
+@keyframes Anim-top {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}
+
+@keyframes Anim-bottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}
+
+@keyframes Anim-height {
+    0% {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    100% {
+        height: 120px;
+        opacity: 1;
+        overflow: hidden;
+
+    }
+
+}
+
+@keyframes Anim-zoom {
+    0% {
+        transform: scale(1);
+        ;
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+
+}
+
+@keyframes Anim-LR {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}
+
+@keyframes Anim-RL {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}
+
+// Hero MQ Section
+@media (max-width:1399px) {
+    .hero-content::after {
+        font-size: 5rem;
+        top: 23%;
+    }
+
+    .hero-content::before {
+        top: 25%;
+        font-size: 5rem;
+    }
+
+    .swiper-next {
+        left: 83%;
+    }
+
+}
+
+@media (max-width:1199px) {
+    .hero-content::after {
+        font-size: 4.5rem;
+        top: 28%;
+    }
+
+    .hero-content::before {
+        top: 28%;
+        font-size: 4.5rem;
+    }
+}
+
+
+@media (max-width:991px) {
+
+    .hero-content::after,
+    .hero-content::before {
+        display: none;
+    }
+
+    .swiper-btn {
+        left: 5%;
+    }
+
+    .swiper-next {
+        left: 85%;
+    }
+}
+
+@media (max-width:767px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 5rem;
+        line-height: 5rem;
+    }
+
+    .swiper-btn {
+        margin: 0 !important;
+
+    }
+}
+
+@media (max-width:575px) {
+    .swiper-btn {
+        font-size: 5rem;
+        left: 0;
+
+    }
+
+    .swiper-next {
+        left: 85%;
+    }
+
+    .search-icon {
+        margin-right: 25px !important;
+    }
+}
